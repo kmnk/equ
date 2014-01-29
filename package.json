@@ -1,0 +1,11 @@
+{
+  "name": "ast",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-coffee": "~0.7.0",
+    "underscore": "~1.5.2",
+    "esprima": "~1.0.4"
+  }
+}
