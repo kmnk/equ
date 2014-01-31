@@ -1,6 +1,10 @@
 _ = require 'underscore'
 
-{token} = require './token'
+equ = require './lib/equ'
+token = require './lib/token'
+type = require './lib/type'
+{read} = require './lib/reader'
+{parse} = require './lib/parser'
 {visit} = require './visitor'
 {isSelected} = require './selector'
 util = require './util'
@@ -48,7 +52,7 @@ class Equ
   attrs: (key) -> _.compact _.map @nodes, (node) -> node[key]
   attr: (key) -> if @nodes.length > 0 then @nodes[0][key] else return
 
-  token: () -> token @nodes
+  token: () -> token.token @nodes
 
 isEqu = (obj) ->
   unless _.isObject obj  then return false
@@ -65,3 +69,8 @@ _create = (nodes) ->
 module.exports =
   equ: (nodes) -> _create nodes
   isEqu: isEqu
+  readAndParse: (path) -> equ.equ parse read path
+  parse: (code) -> equ.equ parse code
+  token: token.token
+  isToken: token.isToken
+  TYPE: type.TYPE

@@ -1,4 +1,4 @@
 (function () {
-    var equ = require('./js/equ.js');
+    var equ = require('./lib/equ.js');
     module.exports = equ;
 }());
