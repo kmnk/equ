@@ -1,2 +1,0 @@
-dir=${0%/*}
-node ${dir}/js/bin/$1.js ${@:2}
