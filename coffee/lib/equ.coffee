@@ -1,10 +1,9 @@
 _ = require 'underscore'
 
-equ = require './lib/equ'
-token = require './lib/token'
-type = require './lib/type'
-{read} = require './lib/reader'
-{parse} = require './lib/parser'
+token = require './token'
+type = require './type'
+{read} = require './reader'
+{parse} = require './parser'
 {visit} = require './visitor'
 {isSelected} = require './selector'
 util = require './util'
@@ -69,8 +68,8 @@ _create = (nodes) ->
 module.exports =
   equ: (nodes) -> _create nodes
   isEqu: isEqu
-  readAndParse: (path) -> equ.equ parse read path
-  parse: (code) -> equ.equ parse code
+  readAndParse: (path) -> _create parse read path
+  parse: (code) -> _create parse code
   token: token.token
   isToken: token.isToken
   TYPE: type.TYPE
