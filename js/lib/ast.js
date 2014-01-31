@@ -1,7 +1,9 @@
 (function() {
-  var Ast, CLASS_NAME, isAst, isSelected, util, visit, _, _create;
+  var Ast, CLASS_NAME, isAst, isSelected, token, util, visit, _, _create;
 
   _ = require('underscore');
+
+  token = require('./token').token;
 
   visit = require('./visitor').visit;
 
@@ -124,6 +126,9 @@
   module.exports = {
     ast: function(nodes) {
       return _create(nodes);
+    },
+    token: function(tokens) {
+      return token(tokens);
     },
     isAst: isAst
   };

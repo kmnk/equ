@@ -1,6 +1,6 @@
 _ = require 'underscore'
 
-{token} = require '../lib/token'
+{token} = require '../lib/ast'
 
 lint = (node, path) ->
   _.map _pickExtraCommas(node), (extraComma) ->

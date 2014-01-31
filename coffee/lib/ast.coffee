@@ -1,5 +1,6 @@
 _ = require 'underscore'
 
+{token} = require './token'
 {visit} = require './visitor'
 {isSelected} = require './selector'
 util = require './util'
@@ -61,4 +62,5 @@ _create = (nodes) ->
 
 module.exports =
   ast: (nodes) -> _create nodes
+  token: (tokens) -> token tokens
   isAst: isAst
