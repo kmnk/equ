@@ -1,15 +1,12 @@
 (function() {
-  var TYPE, equ, find, _;
+  var TYPE, find, _;
 
   _ = require('underscore');
 
   TYPE = require('../type').TYPE;
 
-  equ = require('../equ').equ;
-
-  find = function(node) {
-    var $equ, calls, functionCalls;
-    $equ = equ(node);
+  find = function($equ) {
+    var calls, functionCalls;
     calls = [];
     functionCalls = $equ.find('CallExpression').nodes;
     _.each(functionCalls, function(node) {

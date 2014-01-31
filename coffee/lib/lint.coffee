@@ -5,7 +5,7 @@ printer = require './printer'
 
 LINT_DIRECTORY_PATH = 'js/lint/'
 
-lint = (node, path) ->
+lint = ($equ, path) ->
   printer.log "review #{path}"
 
   lintPaths = readdir LINT_DIRECTORY_PATH
@@ -13,7 +13,7 @@ lint = (node, path) ->
   results = _.flatten _.map lintPaths, (lintPath) ->
     unless lintPath.match ///\.js$/// then return
     {lint} = require "../lint/#{lintPath}"
-    lint node, path
+    lint $equ, path
 
   _.each results, (result) ->
     unless result then return

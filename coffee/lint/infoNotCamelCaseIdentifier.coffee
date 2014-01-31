@@ -1,9 +1,7 @@
 _ = require 'underscore'
 
-{equ} = require '../lib/equ'
-
-lint = (node, path) ->
-  identifiers = equ(node).find('Identifier').nodes
+lint = ($equ, path) ->
+  identifiers = $equ.find('Identifier').nodes
   _.map _.filter(identifiers, (node) ->
     ///^.+_///.test(node.name) and ///[a-z]///.test(node.name)
   ),

@@ -2,16 +2,16 @@ _ = require 'underscore'
 
 {token} = require '../lib/equ'
 
-lint = (node, path) ->
-  _.map _pickExtraCommas(node), (extraComma) ->
+lint = ($equ, path) ->
+  _.map _pickExtraCommas($equ), (extraComma) ->
     level:   'warn'
     message: 'Should not put extra comma.'
     loc:     extraComma.loc
 
-_pickExtraCommas = (node) ->
+_pickExtraCommas = ($equ) ->
   extraCommas = []
 
-  $token = token node
+  $token = $equ.token()
 
   for i in [0..$token.tokens.length-1]
     unless $token.get(i).value is ',' then continue

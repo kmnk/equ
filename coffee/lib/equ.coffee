@@ -48,6 +48,8 @@ class Equ
   attrs: (key) -> _.compact _.map @nodes, (node) -> node[key]
   attr: (key) -> if @nodes.length > 0 then @nodes[0][key] else return
 
+  token: () -> token @nodes
+
 isEqu = (obj) ->
   unless _.isObject obj  then return false
   unless obj.constructor then return false
@@ -62,5 +64,4 @@ _create = (nodes) ->
 
 module.exports =
   equ: (nodes) -> _create nodes
-  token: (tokens) -> token tokens
   isEqu: isEqu

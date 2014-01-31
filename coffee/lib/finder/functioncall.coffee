@@ -1,10 +1,7 @@
 _ = require 'underscore'
 {TYPE} = require '../type'
-{equ} = require '../equ'
 
-find = (node) ->
-  $equ = equ node
-
+find = ($equ) ->
   calls = []
 
   functionCalls = $equ.find('CallExpression').nodes

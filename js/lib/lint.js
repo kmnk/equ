@@ -9,7 +9,7 @@
 
   LINT_DIRECTORY_PATH = 'js/lint/';
 
-  lint = function(node, path) {
+  lint = function($equ, path) {
     var lintPaths, results;
     printer.log("review " + path);
     lintPaths = readdir(LINT_DIRECTORY_PATH);
@@ -18,7 +18,7 @@
         return;
       }
       lint = require("../lint/" + lintPath).lint;
-      return lint(node, path);
+      return lint($equ, path);
     }));
     return _.each(results, function(result) {
       var level, messages;

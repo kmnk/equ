@@ -1,13 +1,10 @@
 (function() {
-  var equ, find, _;
+  var find, _;
 
   _ = require('underscore');
 
-  equ = require('../equ').equ;
-
-  find = function(node) {
-    var $equ, definitions, functionAssignments, functionDeclarations;
-    $equ = equ(node);
+  find = function($equ) {
+    var definitions, functionAssignments, functionDeclarations;
     definitions = [];
     functionAssignments = $equ.find('AssignmentExpression').has('[right:"FunctionExpression"]').nodes;
     _.each(functionAssignments, function(node) {

@@ -91,6 +91,10 @@
       }
     };
 
+    Equ.prototype.token = function() {
+      return token(this.nodes);
+    };
+
     return Equ;
 
   })();
@@ -126,9 +130,6 @@
   module.exports = {
     equ: function(nodes) {
       return _create(nodes);
-    },
-    token: function(tokens) {
-      return token(tokens);
     },
     isEqu: isEqu
   };

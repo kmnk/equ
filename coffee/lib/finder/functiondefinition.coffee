@@ -1,9 +1,6 @@
 _ = require 'underscore'
-{equ} = require '../equ'
 
-find = (node) ->
-  $equ = equ node
-
+find = ($equ) ->
   definitions = []
 
   functionAssignments = $equ.find('AssignmentExpression').has('[right:"FunctionExpression"]').nodes

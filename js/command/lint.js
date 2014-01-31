@@ -7,9 +7,9 @@
 
   read = require('../lib/reader').read;
 
-  parse = require('../lib/parser').parse;
-
   lint = require('../lib/lint').lint;
+
+  parse = require('../equ').parse;
 
   paths = getParameters();
 
