@@ -1,6 +1,7 @@
 {
   "name": "equ",
   "version": "0.0.1",
+  "main": "equ.js",
   "dependencies": {
     "underscore": "~1.5.2",
     "esprima": "~1.0.4"
