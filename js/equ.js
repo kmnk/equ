@@ -1,9 +1,11 @@
 (function() {
-  var equ, parse, token;
+  var equ, parse, read, token;
 
   equ = require('./lib/equ');
 
   token = require('./lib/token');
+
+  read = require('./lib/reader').read;
 
   parse = require('./lib/parser').parse;
 
@@ -12,6 +14,9 @@
     isEqu: equ.isEqu,
     token: token.token,
     isToken: token.isToken,
+    readAndParse: function(path) {
+      return equ.equ(parse(read(path)));
+    },
     parse: function(code) {
       return equ.equ(parse(code));
     }

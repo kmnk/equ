@@ -13,15 +13,15 @@
 
 ### SAMPLE
 
-    $ ./equ sample sample/common.js
+    $ ./equ equ-sample sample/common.js
 
 
 ### LINT
 
 Lint with "coffee/lint/\*.coffee".
 
-    $ ./equ lint sample/common.js
-    $ ./equ lint sample/bad.js
+    $ ./equ equ-lint sample/common.js
+    $ ./equ equ-lint sample/bad.js
 
 
 ## LIBRARY USAGE
@@ -30,11 +30,9 @@ Please read "coffee/command/sample.coffee" source code.
 
 ### Equ
 
-    {read} = require 'lib/reader'
-    {parse} = require 'lib/parser'
-    {equ} = require 'lib/equ'
+    {readAndParse} = require 'equ'
     scriptPath = 'sample/common.js'
-    $equ = equ parse read scriptPath
+    $equ = readAndParse scriptPath
 
 #### $equ.find(selector)
 
@@ -71,13 +69,17 @@ Pickup attributes of all nodes by key.
 Pickup a attribute of first node by key.
 
 
+#### $equ.token()
+
+Return Token object.
+
+
 ### Token
 
-    {read} = require 'lib/reader'
-    {parse} = require 'lib/parser'
-    {token} = require 'lib/equ'
+    {readAndParse} = require 'equ'
     scriptPath = 'sample/common.js'
-    $token = token parse read scriptPath
+    $equ = readAndParse scriptPath
+    $token = $equ.token()
 
 #### $token.find(selector)
 
@@ -107,13 +109,6 @@ Pickup a node by index.
 #### $token.attrs(key)
 
 Pickup attributes of all nodes by key.
-
-
-## SETUP FOR DEVELOPMENT
-
-Execute below command before write coffee script.
-
-    $ grunt
 
 
 ## SEEALSO
