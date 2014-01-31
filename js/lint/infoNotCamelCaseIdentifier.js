@@ -1,13 +1,13 @@
 (function() {
-  var ast, lint, _;
+  var equ, lint, _;
 
   _ = require('underscore');
 
-  ast = require('../lib/ast').ast;
+  equ = require('../lib/equ').equ;
 
   lint = function(node, path) {
     var identifiers;
-    identifiers = ast(node).find('Identifier').nodes;
+    identifiers = equ(node).find('Identifier').nodes;
     return _.map(_.filter(identifiers, function(node) {
       return /^.+_/.test(node.name) && /[a-z]/.test(node.name);
     }), function(node) {

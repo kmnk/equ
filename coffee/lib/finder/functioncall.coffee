@@ -1,13 +1,13 @@
 _ = require 'underscore'
 {TYPE} = require '../type'
-{ast} = require '../ast'
+{equ} = require '../equ'
 
 find = (node) ->
-  $ast = ast node
+  $equ = equ node
 
   calls = []
 
-  functionCalls = $ast.find('CallExpression').nodes
+  functionCalls = $equ.find('CallExpression').nodes
   _.each functionCalls, (node) ->
     if node.callee.type is TYPE.MEMBER_EXPRESSION
       _id = node.callee.property

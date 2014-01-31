@@ -1,15 +1,15 @@
 (function() {
-  var ast, find, _;
+  var equ, find, _;
 
   _ = require('underscore');
 
-  ast = require('../ast').ast;
+  equ = require('../equ').equ;
 
   find = function(node) {
-    var $ast, definitions, functionAssignments, functionDeclarations;
-    $ast = ast(node);
+    var $equ, definitions, functionAssignments, functionDeclarations;
+    $equ = equ(node);
     definitions = [];
-    functionAssignments = $ast.find('AssignmentExpression').has('[right:"FunctionExpression"]').nodes;
+    functionAssignments = $equ.find('AssignmentExpression').has('[right:"FunctionExpression"]').nodes;
     _.each(functionAssignments, function(node) {
       return definitions.push({
         type: node.type,
@@ -19,7 +19,7 @@
         loc: node.loc
       });
     });
-    functionDeclarations = $ast.find('FunctionDeclaration').nodes;
+    functionDeclarations = $equ.find('FunctionDeclaration').nodes;
     _.each(functionDeclarations, function(node) {
       return definitions.push({
         type: node.type,

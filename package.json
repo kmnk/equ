@@ -1,5 +1,5 @@
 {
-  "name": "ast",
+  "name": "equ",
   "version": "0.0.0",
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -7,5 +7,6 @@
     "grunt-contrib-coffee": "~0.7.0",
     "underscore": "~1.5.2",
     "esprima": "~1.0.4"
-  }
+  },
+  "private" : true
 }

@@ -3,7 +3,7 @@
 
   _ = require('underscore');
 
-  token = require('../lib/ast').token;
+  token = require('../lib/equ').token;
 
   lint = function(node, path) {
     return _.map(_pickExtraCommas(node), function(extraComma) {

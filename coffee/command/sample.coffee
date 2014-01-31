@@ -18,15 +18,15 @@ printer.info '# sample parse'
 {getParameters} = require '../lib/parameter'
 {read} = require '../lib/reader'
 {parse} = require '../lib/parser'
-{ast} = require '../lib/ast'
-{token} = require '../lib/token'
+{equ} = require '../lib/equ'
+{token} = require '../lib/equ'
 
-## ast
-printer.info '## ast'
+## equ
+printer.info '## equ'
 _.each getParameters(), (path) ->
-  $ast = ast parse read path
-  printer.log $ast.find('.declarations')
-  printer.log $ast.find('Identifier')
+  $equ = equ parse read path
+  printer.log $equ.find('.declarations')
+  printer.log $equ.find('Identifier')
 
 ## token
 printer.info '## token'
@@ -41,7 +41,7 @@ printer.info '# finders'
 printer.info '## functionDefinition'
 findFunctionDefinition = require('../lib/finder/functiondefinition').find
 _.each getParameters(), (path) ->
-  functionDefinitions = findFunctionDefinition ast parse read path
+  functionDefinitions = findFunctionDefinition equ parse read path
   _.each functionDefinitions, (definition) -> printer.log definition
 
 ## functionCall
@@ -49,5 +49,5 @@ printer.info '## functionCall'
 findFunctionDefinition = require('../lib/finder/functiondefinition').find
 findFunctionCall = require('../lib/finder/functioncall').find
 _.each getParameters(), (path) ->
-  functionCalls = findFunctionCall ast parse read path
+  functionCalls = findFunctionCall equ parse read path
   _.each functionCalls, (call) -> printer.log call

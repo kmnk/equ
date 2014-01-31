@@ -1,11 +1,11 @@
-# ast
+# equ
 
-*Ast* is Esprima wrapper for static analyzing ECMAScript.
+*Equ* is Esprima wrapper for static analyzing ECMAScript.
 
 
 ## INSTALL
 
-    git clone git@github.com:kmnk/ast.git
+    git clone git@github.com:kmnk/equ.git
     npm install
 
 
@@ -13,60 +13,60 @@
 
 ### SAMPLE
 
-    $ ./ast sample sample/common.js
+    $ ./equ sample sample/common.js
 
 
 ### LINT
 
 Lint with "coffee/lint/\*.coffee".
 
-    $ ./ast lint sample/common.js
-    $ ./ast lint sample/bad.js
+    $ ./equ lint sample/common.js
+    $ ./equ lint sample/bad.js
 
 
 ## LIBRARY USAGE
 
 Please read "coffee/command/sample.coffee" source code.
 
-### Ast
+### Equ
 
     {read} = require 'lib/reader'
     {parse} = require 'lib/parser'
-    {ast} = require 'lib/ast'
+    {equ} = require 'lib/equ'
     scriptPath = 'sample/common.js'
-    $ast = ast parse read scriptPath
+    $equ = equ parse read scriptPath
 
-#### $ast.find(selector)
+#### $equ.find(selector)
 
-Search and pickup nodes recursively by selector, and return Ast object.
-
-
-#### $ast.has(selector)
-
-Pickup nodes by selector, and return Ast object.
+Search and pickup nodes recursively by selector, and return Equ object.
 
 
-#### $ast.filter(selector)
+#### $equ.has(selector)
 
-Filter out nodes by selector, and return Ast object.
+Pickup nodes by selector, and return Equ object.
 
 
-#### $ast.first(selector)
+#### $equ.filter(selector)
+
+Filter out nodes by selector, and return Equ object.
+
+
+#### $equ.first(selector)
 
 Pickup a node by selector.
 
 
-#### $ast.get(index)
+#### $equ.get(index)
 
 Pickup a node by index.
 
 
-#### $ast.attrs(key)
+#### $equ.attrs(key)
 
 Pickup attributes of all nodes by key.
 
 
-#### $ast.attr(key)
+#### $equ.attr(key)
 
 Pickup a attribute of first node by key.
 
@@ -75,7 +75,7 @@ Pickup a attribute of first node by key.
 
     {read} = require 'lib/reader'
     {parse} = require 'lib/parser'
-    {token} = require 'lib/token'
+    {token} = require 'lib/equ'
     scriptPath = 'sample/common.js'
     $token = token parse read scriptPath
 

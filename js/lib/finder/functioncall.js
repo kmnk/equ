@@ -1,17 +1,17 @@
 (function() {
-  var TYPE, ast, find, _;
+  var TYPE, equ, find, _;
 
   _ = require('underscore');
 
   TYPE = require('../type').TYPE;
 
-  ast = require('../ast').ast;
+  equ = require('../equ').equ;
 
   find = function(node) {
-    var $ast, calls, functionCalls;
-    $ast = ast(node);
+    var $equ, calls, functionCalls;
+    $equ = equ(node);
     calls = [];
-    functionCalls = $ast.find('CallExpression').nodes;
+    functionCalls = $equ.find('CallExpression').nodes;
     _.each(functionCalls, function(node) {
       var _id;
       if (node.callee.type === TYPE.MEMBER_EXPRESSION) {

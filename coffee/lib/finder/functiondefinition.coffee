@@ -1,12 +1,12 @@
 _ = require 'underscore'
-{ast} = require '../ast'
+{equ} = require '../equ'
 
 find = (node) ->
-  $ast = ast node
+  $equ = equ node
 
   definitions = []
 
-  functionAssignments = $ast.find('AssignmentExpression').has('[right:"FunctionExpression"]').nodes
+  functionAssignments = $equ.find('AssignmentExpression').has('[right:"FunctionExpression"]').nodes
   _.each functionAssignments, (node) ->
     definitions.push
       type:   node.type
@@ -15,7 +15,7 @@ find = (node) ->
       body:   node.right.body
       loc:    node.loc
 
-  functionDeclarations = $ast.find('FunctionDeclaration').nodes
+  functionDeclarations = $equ.find('FunctionDeclaration').nodes
   _.each functionDeclarations, (node) ->
     definitions.push
       type:   node.type

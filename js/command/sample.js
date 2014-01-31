@@ -1,5 +1,5 @@
 (function() {
-  var Printer, ast, findFunctionCall, findFunctionDefinition, getParameters, parse, printer, read, token, _;
+  var Printer, equ, findFunctionCall, findFunctionDefinition, getParameters, parse, printer, read, token, _;
 
   _ = require('underscore');
 
@@ -35,17 +35,17 @@
 
   parse = require('../lib/parser').parse;
 
-  ast = require('../lib/ast').ast;
+  equ = require('../lib/equ').equ;
 
-  token = require('../lib/token').token;
+  token = require('../lib/equ').token;
 
-  printer.info('## ast');
+  printer.info('## equ');
 
   _.each(getParameters(), function(path) {
-    var $ast;
-    $ast = ast(parse(read(path)));
-    printer.log($ast.find('.declarations'));
-    return printer.log($ast.find('Identifier'));
+    var $equ;
+    $equ = equ(parse(read(path)));
+    printer.log($equ.find('.declarations'));
+    return printer.log($equ.find('Identifier'));
   });
 
   printer.info('## token');
@@ -64,7 +64,7 @@
 
   _.each(getParameters(), function(path) {
     var functionDefinitions;
-    functionDefinitions = findFunctionDefinition(ast(parse(read(path))));
+    functionDefinitions = findFunctionDefinition(equ(parse(read(path))));
     return _.each(functionDefinitions, function(definition) {
       return printer.log(definition);
     });
@@ -78,7 +78,7 @@
 
   _.each(getParameters(), function(path) {
     var functionCalls;
-    functionCalls = findFunctionCall(ast(parse(read(path))));
+    functionCalls = findFunctionCall(equ(parse(read(path))));
     return _.each(functionCalls, function(call) {
       return printer.log(call);
     });

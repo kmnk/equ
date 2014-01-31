@@ -1,9 +1,9 @@
 _ = require 'underscore'
 
-{ast} = require '../lib/ast'
+{equ} = require '../lib/equ'
 
 lint = (node, path) ->
-  identifiers = ast(node).find('Identifier').nodes
+  identifiers = equ(node).find('Identifier').nodes
   _.map _.filter(identifiers, (node) ->
     ///^.+_///.test(node.name) and ///[a-z]///.test(node.name)
   ),

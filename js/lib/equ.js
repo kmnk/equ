@@ -1,5 +1,5 @@
 (function() {
-  var Ast, CLASS_NAME, isAst, isSelected, token, util, visit, _, _create;
+  var CLASS_NAME, Equ, isEqu, isSelected, token, util, visit, _, _create;
 
   _ = require('underscore');
 
@@ -11,14 +11,14 @@
 
   util = require('./util');
 
-  CLASS_NAME = 'Ast';
+  CLASS_NAME = 'Equ';
 
-  Ast = (function() {
-    function Ast(nodes) {
+  Equ = (function() {
+    function Equ(nodes) {
       this.nodes = nodes;
     }
 
-    Ast.prototype.find = function(selector) {
+    Equ.prototype.find = function(selector) {
       if (!selector) {
         return this;
       }
@@ -34,7 +34,7 @@
       }), true));
     };
 
-    Ast.prototype.has = function(selector) {
+    Equ.prototype.has = function(selector) {
       if (!selector) {
         return this;
       }
@@ -48,7 +48,7 @@
       }), true));
     };
 
-    Ast.prototype.filter = function(selector) {
+    Equ.prototype.filter = function(selector) {
       if (!selector) {
         return this;
       }
@@ -62,11 +62,11 @@
       }), true));
     };
 
-    Ast.prototype.first = function(selector) {
+    Equ.prototype.first = function(selector) {
       return _.first(this.find(selector).nodes);
     };
 
-    Ast.prototype.get = function(i) {
+    Equ.prototype.get = function(i) {
       if (i == null) {
         i = 0;
       }
@@ -77,13 +77,13 @@
       }
     };
 
-    Ast.prototype.attrs = function(key) {
+    Equ.prototype.attrs = function(key) {
       return _.compact(_.map(this.nodes, function(node) {
         return node[key];
       }));
     };
 
-    Ast.prototype.attr = function(key) {
+    Equ.prototype.attr = function(key) {
       if (this.nodes.length > 0) {
         return this.nodes[0][key];
       } else {
@@ -91,11 +91,11 @@
       }
     };
 
-    return Ast;
+    return Equ;
 
   })();
 
-  isAst = function(obj) {
+  isEqu = function(obj) {
     if (!_.isObject(obj)) {
       return false;
     }
@@ -109,7 +109,7 @@
   };
 
   _create = function(nodes) {
-    if (isAst(nodes)) {
+    if (isEqu(nodes)) {
       return nodes;
     }
     if (!_.isArray(nodes)) {
@@ -120,17 +120,17 @@
     })) {
       throw 'invalid node';
     }
-    return new Ast(nodes);
+    return new Equ(nodes);
   };
 
   module.exports = {
-    ast: function(nodes) {
+    equ: function(nodes) {
       return _create(nodes);
     },
     token: function(tokens) {
       return token(tokens);
     },
-    isAst: isAst
+    isEqu: isEqu
   };
 
 }).call(this);
