@@ -119,7 +119,6 @@ Pickup attributes of all nodes by key.
 ## REQUIREMENTS
 
 * [Node.js][node]
-* [grunt-cli][gruntcli]
 
 
 [node]: http://nodejs.org/ "Node.js"
