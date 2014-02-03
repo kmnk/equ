@@ -1,6 +1,9 @@
 {
   "name": "equ",
   "version": "0.0.3",
+  "description": "Esprima wrapper for static analyzing ECMAScript",
+  "keywords": ["parser", "esprima", "wrapper"],
+  "author": "Kmnk Nmk <kmnknmk@gmail.com>",
   "main": "equ.js",
   "dependencies": {
     "underscore": "~1.5.2",
@@ -10,6 +13,5 @@
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-coffee": "~0.7.0"
-  },
-  "private" : false
+  }
 }
