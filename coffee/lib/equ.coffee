@@ -51,7 +51,7 @@ class Equ
   attrs: (key) -> _.compact _.map @nodes, (node) -> node[key]
   attr: (key) -> if @nodes.length > 0 then @nodes[0][key] else return
 
-  token: () -> token.token @nodes
+  token: () -> if _.first(@nodes).tokens then token.token _.first(@nodes).tokens
 
 isEqu = (obj) ->
   unless _.isObject obj  then return false
