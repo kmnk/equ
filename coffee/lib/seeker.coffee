@@ -20,6 +20,7 @@ seek = (node, callback, param) ->
     when TYPE.IF_STATEMENT         then names = ['test', 'consequent', 'alternate']
     when TYPE.LABELED_STATEMENT    then names = ['label', 'body', 'alternate']
     when TYPE.BREAK_STATEMENT      then names = ['label']
+    when TYPE.CONTINUE_STATEMENT   then names = ['label']
     when TYPE.WITH_STATEMENT       then names = ['object', 'body']
     when TYPE.SWITCH_STATEMENT     then names = ['discriminant', 'cases', 'lexial']
     when TYPE.RETURN_STATEMENT     then names = ['argument']
