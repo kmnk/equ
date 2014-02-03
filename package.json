@@ -1,6 +1,6 @@
 {
   "name": "equ",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Esprima wrapper for static analyzing ECMAScript",
   "keywords": ["parser", "esprima", "wrapper"],
   "author": "Kmnk Nmk <kmnknmk@gmail.com>",
